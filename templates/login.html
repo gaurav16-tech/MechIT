@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block content %}
+<div class="container">
+  <div class="form">
+    <div class="tab-group">
+        <div id="tab-signup" onclick="location.href='{% url 'signup' %}';"><h3>SignUp</h3></div>
+        <div id="tab-login" onclick="location.href='{% url 'accounts:login' %}';"><h3>Login</h3></div>
+    </div>
+    <form method="POST">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      <button type="submit" class="button button-block" name='login'>Login</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
